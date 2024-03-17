@@ -10,7 +10,7 @@ function Authorization() {
   return (
     <div className="flex flex-col justify-between bg-gray-50 h-[150px]">
       <div className="flex flex-col">
-        <div className="flex items-center bg-white">
+        <div className="flex items-center bg-white text-xs lg:text-md">
           <div
             className={cn(
               "flex items-center cursor-pointer px-2 py-2",
@@ -20,7 +20,7 @@ function Authorization() {
             )}
             onClick={() => setChoise("nike-name")}
           >
-            <User />
+            <User className="size-5 md:size-7" />
             {"دخول الزوار"}
           </div>
           <div
@@ -32,7 +32,7 @@ function Authorization() {
             )}
             onClick={() => setChoise("sign-in")}
           >
-            <User />
+            <User className="size-5 md:size-7"/>
             {"دخول الاعضاء"}
           </div>
           <div
@@ -44,7 +44,7 @@ function Authorization() {
             )}
             onClick={() => setChoise("sign-up")}
           >
-            <UserPlus />
+            <UserPlus className="size-5 md:size-7" />
             {"تسجيل عضويه"}
           </div>
         </div>
