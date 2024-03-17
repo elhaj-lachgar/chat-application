@@ -38,7 +38,7 @@ export default function Blogs() {
               <DrawerCloseButton backgroundColor={"red"} color={"white"} />
             </div>
 
-            <div className="flex flex-col  h-[500px] overflow-auto">
+            <div className="flex flex-col h-[450px]  md:h-[500px] overflow-auto">
               {[...Array(20)].map(() => (
                 <Post />
               ))}
