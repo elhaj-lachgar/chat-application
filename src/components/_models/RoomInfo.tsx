@@ -10,6 +10,7 @@ import { User } from "lucide-react";
 
 import { useRef } from "react";
 import UserContainer from "../UserContainer";
+import UserModule from "../UserModule";
 
 export default function RoomInfo() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -38,7 +39,7 @@ export default function RoomInfo() {
               <DrawerCloseButton  backgroundColor={"red"} color={"white"}/>
             </div>
             <Input placeholder="البحث..."  width={"100%"} size={"sm"}  borderRadius={"5px"}/>
-            <UserContainer/>
+            <UserModule/>
             <div className="w-full text-center bg-green-500 text-white py-1 ">
             المتواجدين في الدردشه
             </div>

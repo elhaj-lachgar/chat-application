@@ -8,6 +8,7 @@ import {
 import { MessageCircle } from "lucide-react";
 
 import { useRef } from "react";
+import UserModule from "../UserModule";
 
 export default function PrivateChat() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -20,7 +21,7 @@ export default function PrivateChat() {
         className="flex justify-center bg-blue-950 items-center border text-sm md:text-md text-white w-[100px] py-1 rounded-md cursor-pointer "
         onClick={onOpen}
       >
-        <MessageCircle  className=" size-4 md:size-5" /> {"الخاص"}
+        <MessageCircle className=" size-4 md:size-5" /> {"الخاص"}
       </div>
       <Drawer
         isOpen={isOpen}
@@ -33,6 +34,11 @@ export default function PrivateChat() {
           <div className="w-full flex items-center justify-between px-2 bg-blue-800 text-white relative h-[50px]">
             <p className="font-bold">المحادثات الخاصه</p>
             <DrawerCloseButton backgroundColor={"red"} color={"white"} />
+          </div>
+          <div className="flex flex-col h-[550px] overflow-auto">
+            {[...Array(10)].map(() => (
+              <UserModule />
+            ))}
           </div>
         </DrawerContent>
       </Drawer>

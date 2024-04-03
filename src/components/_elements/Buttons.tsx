@@ -1,12 +1,18 @@
-import {Heart , MessageCircle} from "lucide-react";
+import { Heart } from "lucide-react";
+import CommentModule from "../CommentModule";
+import { useState } from "react";
 
 function Buttons() {
+  const [ click , setClick ] = useState(false);
   return (
     <div className="flex items-center">
-      <Heart className="p-1 text-white bg-red-500 cursor-pointer "/>
-      <MessageCircle  className="p-1 text-white bg-blue-700 cursor-pointer"/>
+      <div className=" text-red-500  gap-x-1 text-sm p-1 flex items-center  bg-gray-100 cursor-pointer " onClick={()=>setClick(!click)}>
+        <Heart className="size-4" />
+        { click ? 1 : 0}
+      </div>
+      <CommentModule/>
     </div>
-  )
+  );
 }
 
-export default Buttons
+export default Buttons;

@@ -10,6 +10,7 @@ import { Plus, Video } from "lucide-react";
 
 import { useRef } from "react";
 import RoomContainer from "../RoomContainer";
+import CreateRoomModule from "./CreateRoomModule";
 
 export default function Rooms() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -38,9 +39,7 @@ export default function Rooms() {
               <DrawerCloseButton backgroundColor={"red"} color={"white"} />
             </div>
             <div className="w-full bg-blue-950 py-1 px-2">
-              <Button size={"sm"} leftIcon={<Plus/>} bg={"rgb(34 197 94)"} color={"white"}>
-              غرفه جديدة
-              </Button>
+              <CreateRoomModule/>
             </div>
             <div className="flex flex-col overflow-auto h-[550px]">
               {

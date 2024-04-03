@@ -4,12 +4,18 @@ import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
+import SizeContextProvider from "./context/SizeContextProvider.tsx";
+import AdminContextProvider from "./context/AdminContextProvider.tsx";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ChakraProvider>
-        <App />
-      </ChakraProvider>
+      <AdminContextProvider>
+        <SizeContextProvider>
+          <ChakraProvider>
+            <App />
+          </ChakraProvider>
+        </SizeContextProvider>
+      </AdminContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

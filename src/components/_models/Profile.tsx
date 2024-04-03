@@ -8,15 +8,20 @@ import {
   Button,
   Select,
 } from "@chakra-ui/react";
-import { Settings , UserRoundX , LogOut} from "lucide-react";
+import { Settings, UserRoundX, LogOut } from "lucide-react";
 
 import { useRef } from "react";
 import UploadButton from "../_elements/UploadButton";
+import { useSizeContext } from "../../context/SizeContextProvider";
+import { useAdminContext } from "../../context/AdminContextProvider";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef<HTMLDivElement | null>(null);
-
+  const { setSize } = useSizeContext();
+  const { admin } = useAdminContext();
+  const router = useNavigate();
   return (
     <>
       <div
@@ -24,7 +29,7 @@ export default function Profile() {
         className="flex justify-center bg-blue-950 items-center border text-sm md:text-md text-white w-[100px] py-1 rounded-md cursor-pointer "
         onClick={onOpen}
       >
-        <Settings  className=" size-4 md:size-5" /> {"الضبط"}
+        <Settings className=" size-4 md:size-5" /> {"الضبط"}
       </div>
       <Drawer
         isOpen={isOpen}
@@ -94,13 +99,26 @@ export default function Profile() {
                 textColor={"white"}
                 size={"sm"}
                 iconColor="white"
+                onChange={(e) => setSize(parseFloat(e.currentTarget.value))}
               >
-                <option className="text-black">%100 - حجم الخطوط</option>
-                <option className="text-black">%120 - حجم الخطوط</option>
-                <option className="text-black">%110 - حجم الخطوط</option>
-                <option className="text-black">%105 - حجم الخطوط</option>
-                <option className="text-black">%95 - حجم الخطوط</option>
-                <option className="text-black">%90 - حجم الخطوط</option>
+                <option className="text-black" value="1">
+                  %100 - حجم الخطوط
+                </option>
+                <option className="text-black" value="1.2">
+                  %120 - حجم الخطوط
+                </option>
+                <option className="text-black" value="1.1">
+                  %110 - حجم الخطوط
+                </option>
+                <option className="text-black" value="1.05">
+                  %105 - حجم الخطوط
+                </option>
+                <option className="text-black" value="0.95">
+                  %95 - حجم الخطوط
+                </option>
+                <option className="text-black" value="0.90">
+                  %90 - حجم الخطوط
+                </option>
               </Select>
               <Select
                 size={"sm"}
@@ -141,7 +159,7 @@ export default function Profile() {
                 _hover={{ bg: "rgb(239 68 68)" }}
                 size={"sm"}
                 borderRadius={"0px"}
-                leftIcon={<UserRoundX className="text-white"/>}
+                leftIcon={<UserRoundX className="text-white" />}
                 textAlign={"center"}
                 border={"1px solid gray"}
                 color={"white"}
@@ -154,13 +172,26 @@ export default function Profile() {
                 _hover={{ bg: "rgb(239 68 68)" }}
                 size={"sm"}
                 borderRadius={"0px"}
-                leftIcon={<LogOut className="text-white"/>}
+                leftIcon={<LogOut className="text-white" />}
                 textAlign={"center"}
                 border={"1px solid gray"}
                 color={"white"}
               >
                 تسجيل خروج
               </Button>
+              {admin && (
+                <Button
+                  size={"sm"}
+                  borderRadius={"0px"}
+                  border={"1px solid gray"}
+                  onClick={() => {
+                    if (!admin) return;
+                    router("/admin-view/record");
+                  }}
+                >
+                  لوحة تحكم
+                </Button>
+              )}
             </div>
           </div>
         </DrawerContent>
