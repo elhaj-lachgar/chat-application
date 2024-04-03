@@ -9,7 +9,7 @@ import {
 import { User } from "lucide-react";
 
 import { useRef } from "react";
-import UserContainer from "../UserContainer";
+
 import UserModule from "../UserModule";
 
 export default function RoomInfo() {

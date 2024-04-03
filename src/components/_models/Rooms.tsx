@@ -3,10 +3,9 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Button,
   useDisclosure,
 } from "@chakra-ui/react";
-import { Plus, Video } from "lucide-react";
+import {  Video } from "lucide-react";
 
 import { useRef } from "react";
 import RoomContainer from "../RoomContainer";
